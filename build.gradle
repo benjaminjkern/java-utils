@@ -1,10 +1,25 @@
 plugins {
-    id 'java-library' 
+    id 'java-library'
+    id 'maven-publish'
 }
 
 repositories {
     jcenter() 
 }
+
+
+
+publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId = 'com.github.benjaminjkern'
+                artifactId = 'utils'
+                version = '1.0'
+
+                from components.java
+            }
+        }
+    }
 
 dependencies {
     api 'org.apache.commons:commons-math3:3.6.1' 
